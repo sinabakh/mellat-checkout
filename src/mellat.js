@@ -17,6 +17,50 @@ class Mellat {
       this.client = client;
     });
   }
+
+  paymentRequest({ amount, orderId, callbackUrl, additionalData, payerId }, callback) {
+    if (!callback) {
+      return new Promise((resolve, reject) => {
+        this.paymentRequest({ amount, orderId, callbackUrl, additionalData, payerId },
+          (error, res) => {
+            if (error) {
+              return reject(error);
+            }
+            return resolve(res);
+          });
+      });
+    }
+    const now = new Date();
+    const args = {
+      orderId,
+      amount,
+      terminalId: this.config.terminalId,
+      userName: this.config.username,
+      userPassword: this.config.password,
+      localDate: now.toISOString().slice(0, 10).replace(/-/g, ''),
+      localTime: `${now.getHours()}${now.getMinutes()}${now.getSeconds()}`,
+      callBackUrl: callbackUrl,
+      payerId: payerId || 0,
+      additionalData,
+    };
+    return this.client.bpPayRequest(args, (error, result) => {
+      if (error) {
+        return callback(error);
+      }
+      const parsed = result.return.split(',');
+      if (parsed.length < 2) {
+        return callback(null, {
+          resCode: parsed[0],
+          refId: null,
+        });
+      }
+      const refId = parsed[1];
+      return callback(null, {
+        resCode: 0,
+        refId,
+      });
+    });
+  }
 }
 
 module.exports = Mellat;
