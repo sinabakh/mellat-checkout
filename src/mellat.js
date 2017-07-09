@@ -114,18 +114,7 @@ class Mellat {
       if (error) {
         return callback(error);
       }
-      const parsed = result.return.split(',');
-      if (parsed.length < 2) {
-        return callback(null, {
-          resCode: parsed[0],
-          refId: null,
-        });
-      }
-      const refId = parsed[1];
-      return callback(null, {
-        resCode: 0,
-        refId,
-      });
+      return callback(null, { resCode: result.return });
     });
   }
 }
