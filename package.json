@@ -1,6 +1,6 @@
 {
   "name": "mellat-checkout",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unofficial implementation of Behpardakht Mellat Gateway API.",
   "main": "index.js",
   "scripts": {
