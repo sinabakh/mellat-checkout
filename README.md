@@ -33,7 +33,7 @@ yarn add mellat-checkout
 Import the package:
 ```
 const MellatCheckout = require('mellat-checkout');
-// or (ES5):
+// or (ES6):
 import MellatCheckout from 'mellat-checkout';
 ```
 Then create an instance:
