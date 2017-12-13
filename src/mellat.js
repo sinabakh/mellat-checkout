@@ -5,16 +5,30 @@ import BaseConfig from './config';
 class Mellat {
   constructor(userConfig) {
     this.config = Object.assign(BaseConfig, userConfig);
-    Soap.createClient(this.config.apiUrl, {
+  }
+
+  initialize(callback) {
+    if (!callback) {
+      return new Promise((resolve, reject) => {
+        this.paymentRequest((error, res) => {
+          if (error) {
+            return reject(error);
+          }
+          return resolve(res);
+        });
+      });
+    }
+    return Soap.createClient(this.config.apiUrl, {
       envelopeKey: 'x',
       overrideRootElement: {
         namespace: 'ns1',
       },
     }, (error, client) => {
       if (error) {
-        console.error(error);
+        return callback(error);
       }
       this.client = client;
+      return callback(null);
     });
   }
 
