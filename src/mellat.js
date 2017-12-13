@@ -10,7 +10,7 @@ class Mellat {
   initialize(callback) {
     if (!callback) {
       return new Promise((resolve, reject) => {
-        this.paymentRequest((error, res) => {
+        this.initialize((error, res) => {
           if (error) {
             return reject(error);
           }
