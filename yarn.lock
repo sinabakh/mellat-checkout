@@ -2311,7 +2311,7 @@ sntp@2.x.x:
   dependencies:
     hoek "4.x.x"
 
-soap@^0.19.2:
+soap@0.19.2:
   version "0.19.2"
   resolved "https://registry.yarnpkg.com/soap/-/soap-0.19.2.tgz#548c0b9ae7d17bd903751292471f6ad9a9e7e3c7"
   dependencies:
