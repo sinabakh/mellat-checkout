@@ -23,6 +23,9 @@ class Mellat {
       overrideRootElement: {
         namespace: 'ns1',
       },
+      wsdl_options: {
+        timeout: this.config.timeout,
+      },
     }, (error, client) => {
       if (error) {
         return callback(error);
