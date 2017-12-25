@@ -41,8 +41,14 @@ Then create an instance:
 const mellat = new MellatCheckout({
   terminalId: 'xxxxxxx',
   username: 'xxxxxxx',
-  password: 'xxxxxxx'
+  password: 'xxxxxxx',
+  timeout: 10000 // int in millisecond, not required (defaults to 10 sec)
+  apiUrl: 'https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl' // exists (and may updated) in bank documentation, not required (defaults to this)
 });
+
+mellat.initialize! // this is promise and will create client async
+.then( () => console.log("Mellat client ready") )
+.catch( (error) => console.log("Mellat client ends with error", error) ) // you can retry here
 ```
 
 ### API
