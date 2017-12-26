@@ -31,24 +31,31 @@ yarn add mellat-checkout
 ### Create An Instance
 
 Import the package:
-```
+```javascript
 const MellatCheckout = require('mellat-checkout');
 // or (ES6):
 import MellatCheckout from 'mellat-checkout';
 ```
 Then create an instance:
-```
+```javascript
 const mellat = new MellatCheckout({
   terminalId: 'xxxxxxx',
   username: 'xxxxxxx',
   password: 'xxxxxxx',
-  timeout: 10000 // int in millisecond, not required (defaults to 10 sec)
-  apiUrl: 'https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl' // exists (and may updated) in bank documentation, not required (defaults to this)
+  timeout: 10000, // Optional, number in millisecond (defaults to 10 sec)
+  apiUrl: 'https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl', // Optional exists (and may updated) in bank documentation (defaults to this)
 });
 
-mellat.initialize! // this is promise and will create client async
-.then( () => console.log("Mellat client ready") )
-.catch( (error) => console.log("Mellat client ends with error", error) ) // you can retry here
+// Initialize the client, this step is oprional
+// but gives you more control over your flow
+// and speeds up the first (and just first) request.
+mellat.initialize.then( function () {
+  console.log("Mellat client ready")
+})
+.catch( function (error) => {
+  // you can retry here
+  console.log("Mellat client encountered error:", error)
+});
 ```
 
 ### API
@@ -78,7 +85,7 @@ mellat.verifyPayment({
   saleReferenceId: '5142510', // Get From Payment Callback Post Params
 }).then(function (response) {
   if (response.resCode === '0') {
-    console.log("Verified, Calling settlePayment");
+    console.log("Verified, Call settlePayment");
   } else {
     console.warn('Gateway Error: ', response.resCode);
   }
