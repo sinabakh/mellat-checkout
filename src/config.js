@@ -1,6 +1,7 @@
 export default {
-  apiUrl: 'https://pgw.bpm.bankmellat.ir/pgwchannel/services/pgw?wsdl',
+  apiUrl: 'https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl',
   terminalId: '',
   username: '',
   password: '',
+  timeout: 1000,
 };
