@@ -1,4 +1,5 @@
 # Mellat Ckeckout:
+
 Unofficial [Behpardakht Mellat Gateway](http://www.behpardakht.com/resources/Vpos.html) implementation in Node.JS
 
 - [Installation](#installation)
@@ -18,16 +19,20 @@ Unofficial [Behpardakht Mellat Gateway](http://www.behpardakht.com/resources/Vpo
 - [Contributing](#contributing)
 
 ## Installation
+
 Install the package from 'npm' or 'yarn'.
 ### NPM
+
 ```bash
 npm install mellat-checkout
 ```
 ### Yarn
+
 ```bash
 yarn add mellat-checkout
 ```
 ## Usage:
+
 ### Create An Instance
 
 Import the package:
@@ -43,23 +48,25 @@ const mellat = new MellatCheckout({
   username: 'xxxxxxx',
   password: 'xxxxxxx',
   timeout: 10000, // Optional, number in millisecond (defaults to 10 sec)
-  apiUrl: 'https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl', // Optional exists (and may updated) in bank documentation (defaults to this)
+  apiUrl: 'https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl', // Optional, exists (and may updated) in bank documentation (defaults to this)
 });
 
 // Initialize the client, this step is oprional
 // but gives you more control over your flow
 // and speeds up the first (and just first) request.
-mellat.initialize.then( function () {
+mellat.initialize.then(function () {
   console.log("Mellat client ready")
 })
-.catch( function (error) => {
+.catch(function (error) => {
   // you can retry here
   console.log("Mellat client encountered error:", error)
 });
 ```
 
 ### API
+
 #### Payment Request:
+
 ```javascript
 mellat.paymentRequest({
   amount: 1000, // Payment Amount In Rials
@@ -78,6 +85,7 @@ mellat.paymentRequest({
 ```
 
 #### Payment Verification:
+
 ```javascript
 mellat.verifyPayment({
   orderId: '12345678912', // OrderID Used In Payment Request
@@ -95,6 +103,7 @@ mellat.verifyPayment({
 ```
 
 #### Payment Settlement (Payment Finalization):
+
 ```javascript
 mellat.settlePayment({
   orderId: '12345678912', // OrderID Used In Payment Request
@@ -114,6 +123,7 @@ mellat.settlePayment({
 ```
 
 ### Callbacks Instead Of Promises
+
 All methods can be called by using Callbacks instead of Promises, lets take `paymentRequest` as an example:
 
 ```javascript
@@ -133,9 +143,10 @@ mellat.paymentRequest({
 });
 ```
 
-## TODO
+## TODOS
 
-### API
+### API-TODO
+
 - [x] bpPayRequest
 - [x] bpVerifyRequest
 - [x] bpSettleRequest
@@ -145,11 +156,14 @@ mellat.paymentRequest({
 - [ ] bpCumulativeDynamicPayRequest
 
 ### Helper Methods
+
 - [ ] verifyAndSettle (Verify the payment and settle/reverse it)
 
 ### Code
+
 - [ ] JSDocs and code comments
 - [ ] Unit tests using `mocha`
 
 ## Contributing
+
 Contributions are welcome. Please submit PRs or just file an Issue if you see something broken or in need of improving.
