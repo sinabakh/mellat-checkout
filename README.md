@@ -1,5 +1,8 @@
 # Mellat Ckeckout:
 
+[![npm version](https://badge.fury.io/js/mellat-checkout.svg)](https://badge.fury.io/js/mellat-checkout)
+[![bitHound Overall Score](https://www.bithound.io/github/sinabakh/mellat-checkout/badges/score.svg)](https://www.bithound.io/github/sinabakh/mellat-checkout)
+
 Unofficial [Behpardakht Mellat Gateway](http://www.behpardakht.com/resources/Vpos.html) implementation in Node.JS
 
 - [Installation](#installation)
