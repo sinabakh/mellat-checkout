@@ -57,7 +57,7 @@ const mellat = new MellatCheckout({
 // Initialize the client, this step is oprional
 // but gives you more control over your flow
 // and speeds up the first (and just first) request.
-mellat.initialize.then(function () {
+mellat.initialize().then(function () {
   console.log("Mellat client ready")
 })
 .catch(function (error) => {
