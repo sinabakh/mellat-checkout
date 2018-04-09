@@ -3,5 +3,5 @@ export default {
   terminalId: '',
   username: '',
   password: '',
-  timeout: 1000,
+  timeout: 10000,
 };
