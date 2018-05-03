@@ -5,6 +5,8 @@
 
 Unofficial [Behpardakht Mellat Gateway](http://www.behpardakht.com/resources/Vpos.html) implementation in Node.JS
 
+NOTICE: SUBJECT TO BACKWARD INCOMPATIBLE CHANGES (Due to under V1.0.0 version).
+
 - [Installation](#installation)
   - [NPM](#npm)
   - [Yarn](#yarn)
