@@ -54,7 +54,7 @@ const mellat = new MellatCheckout({
   apiUrl: 'https://bpm.shaparak.ir/pgwchannel/services/pgw?wsdl', // Optional, exists (and may updated) in bank documentation (defaults to this)
 });
 
-// Initialize the client, this step is oprional
+// Initialize the client, this step is optional
 // but gives you more control over your flow
 // and speeds up the first (and just first) request.
 mellat.initialize().then(function () {
