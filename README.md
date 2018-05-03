@@ -77,7 +77,7 @@ mellat.paymentRequest({
   callbackUrl: 'https://call.back/mellat', // Payment Callback URL
   payerId: '0' // Optional
 }).then(function (response) {
-  if (response.resCode === '0') {
+  if (response.resCode === 0) {
     console.log(response.refId);
   } else {
     console.warn('Gateway Error: ', response.resCode);
@@ -95,7 +95,7 @@ mellat.verifyPayment({
   saleOrderId: '12345678912', // Get From Payment Callback Post Params
   saleReferenceId: '5142510', // Get From Payment Callback Post Params
 }).then(function (response) {
-  if (response.resCode === '0') {
+  if (response.resCode === 0) {
     console.log("Verified, Call settlePayment");
   } else {
     console.warn('Gateway Error: ', response.resCode);
@@ -113,9 +113,9 @@ mellat.settlePayment({
   saleOrderId: '12345678912', // Get From Payment Callback Post Params
   saleReferenceId: '5142510', // Get From Payment Callback Post Params
 }).then(function (response) {
-  if (response.resCode === '0') {
+  if (response.resCode === 0) {
     console.log("Payment Is Done.");
-  } else if (response.resCode === '45') {
+  } else if (response.resCode === 45) {
     console.log("Payment Already Done(Settled Before).");    
   } else {
     console.warn('Gateway Error: ', response.resCode);
@@ -138,7 +138,7 @@ mellat.paymentRequest({
 }, function (error, response) {
   if (error) {
     console.error(error);
-  } else if (response.resCode === '0') {
+  } else if (response.resCode === 0) {
     console.log(response.refId);
   } else {
     console.warn('Gateway Error: ', response.resCode);

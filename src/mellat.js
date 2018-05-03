@@ -89,13 +89,15 @@ class Mellat {
         const parsed = result.return.split(',');
         if (parsed.length < 2) {
           return callback(null, {
-            resCode: parsed[0],
+            resCode: Number(parsed[0]),
+            rawResCode: parsed[0],
             refId: null,
           });
         }
         const refId = parsed[1];
         return callback(null, {
           resCode: 0,
+          rawResCode: '0',
           refId,
         });
       });
@@ -130,7 +132,7 @@ class Mellat {
         if (error) {
           return callback(error);
         }
-        return callback(null, { resCode: result.return });
+        return callback(null, { resCode: Number(result.return), rawResCode: result.return });
       });
     });
   }
@@ -163,7 +165,7 @@ class Mellat {
         if (error) {
           return callback(error);
         }
-        return callback(null, { resCode: result.return });
+        return callback(null, { resCode: Number(result.return), rawResCode: result.return });
       });
     });
   }
