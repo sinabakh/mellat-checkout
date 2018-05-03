@@ -81,6 +81,9 @@ mellat.paymentRequest({
 }).then(function (response) {
   if (response.resCode === 0) {
     console.log(response.refId);
+    // Now redirect user to following address with post param
+    // { RefId: response.refId }
+    // https://bpm.shaparak.ir/pgwchannel/startpay.mellat
   } else {
     console.warn('Gateway Error: ', response.resCode);
   }
