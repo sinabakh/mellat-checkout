@@ -158,8 +158,8 @@ mellat.paymentRequest({
 - [x] bpPayRequest
 - [x] bpVerifyRequest
 - [x] bpSettleRequest
-- [ ] bpInquiryRequest
-- [ ] bpReversalRequest
+- [x] bpInquiryRequest
+- [x] bpReversalRequest
 - [ ] bpDynamicPayRequest
 - [ ] bpCumulativeDynamicPayRequest
 
