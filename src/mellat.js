@@ -202,6 +202,39 @@ class Mellat {
       });
     });
   }
+
+  reversalRequest({ orderId, saleOrderId, saleReferenceId }, callback) {
+    if (!callback) {
+      return new Promise((resolve, reject) => {
+        this.reversalRequest({ orderId, saleOrderId, saleReferenceId },
+          (error, res) => {
+            if (error) {
+              return reject(error);
+            }
+            return resolve(res);
+          });
+      });
+    }
+    return this.initializeIfNotInitialized((error) => {
+      if (error) {
+        return callback(error);
+      }
+      const args = {
+        orderId,
+        saleOrderId,
+        saleReferenceId,
+        terminalId: this.config.terminalId,
+        userName: this.config.username,
+        userPassword: this.config.password,
+      };
+      return this.client.bpReversalRequest(args, (error, result) => {
+        if (error) {
+          return callback(error);
+        }
+        return callback(null, { resCode: Number(result.return), rawResCode: result.return });
+      });
+    });
+  }
 }
 
 module.exports = Mellat;
