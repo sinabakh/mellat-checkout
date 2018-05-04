@@ -131,6 +131,38 @@ mellat.settlePayment({
 });
 ```
 
+#### Inquiry Request:
+
+```javascript
+mellat.inquiryRequest({
+  orderId: '12345678912', // OrderID Used In Payment Request
+  saleOrderId: '12345678912', // Get From Payment Callback Post Params
+  saleReferenceId: '5142510', // Get From Payment Callback Post Params
+}).then(function (response) {
+  console.log('Payment Status: ' + response.resCode)
+}).catch(function (error) {
+  console.error(error);
+});
+```
+
+#### Reversal Request:
+
+```javascript
+mellat.reversalRequest({
+  orderId: '12345678912', // OrderID Used In Payment Request
+  saleOrderId: '12345678912', // Get From Payment Callback Post Params
+  saleReferenceId: '5142510', // Get From Payment Callback Post Params
+}).then(function (response) {
+  if (response.resCode === 0) {
+    console.log("Payment Is Reversed.");
+  } else {
+    console.warn('Gateway Error: ', response.resCode);
+  }
+}).catch(function (error) {
+  console.error(error);
+});
+```
+
 ### Callbacks Instead Of Promises
 
 All methods can be called by using Callbacks instead of Promises, lets take `paymentRequest` as an example:
