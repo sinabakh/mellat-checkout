@@ -26,7 +26,7 @@ NOTICE: SUBJECT TO BACKWARD INCOMPATIBLE CHANGES (Due to under V1.0.0 version).
 
 ## Installation
 
-Install the package from 'npm' or 'yarn'.
+Install the package from `npm` or `yarn`.
 ### NPM
 
 ```bash
