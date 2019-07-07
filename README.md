@@ -1,4 +1,4 @@
-# Mellat Ckeckout:
+# Mellat Checkout:
 
 [![npm version](https://badge.fury.io/js/mellat-checkout.svg)](https://badge.fury.io/js/mellat-checkout)
 
@@ -62,7 +62,7 @@ const mellat = new MellatCheckout({
 mellat.initialize().then(function () {
   console.log("Mellat client ready")
 })
-.catch(function (error) => {
+.catch(function (error) {
   // you can retry here
   console.log("Mellat client encountered error:", error)
 });
