@@ -33,6 +33,6 @@
     "eslint-plugin-import": "^2.8.0"
   },
   "dependencies": {
-    "soap": "0.23.0"
+    "soap": "0.45.0"
   }
 }
